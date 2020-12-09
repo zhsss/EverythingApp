@@ -20,9 +20,6 @@ import retrofit2.http.Query
 import kotlinx.android.synthetic.main.news_fragment.view.*
 class NewsFragment : Fragment()
 {
-
-
-
     override fun onCreateView(
             inflater: LayoutInflater,
             container: ViewGroup?,
@@ -32,16 +29,6 @@ class NewsFragment : Fragment()
 
         getInternetData("")
         return view
-    }
-    private fun initRecyclerView(dataClass: NewsDataClass) {
-        activity?.runOnUiThread {
-            newsRecyclerView.layoutManager = LinearLayoutManager(activity)
-            newsRecyclerView.adapter =NewsAdapter(
-                    activity,
-                    dataClass.result!!.data as ArrayList<NewsDataClass.ResultBean.DataBean>
-            )
-            (newsRecyclerView.adapter as NewsAdapter).notifyDataSetChanged()
-        }
     }
 
     /**
@@ -55,7 +42,6 @@ class NewsFragment : Fragment()
         ):retrofit2.Call<NewsDataClass>
     }
     private fun getInternetData(type:String){
-        var list:MutableList<NewsDataClass.ResultBean.DataBean> = ArrayList()
         val retrofit= Retrofit.Builder().baseUrl("https://v.juhe.cn/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
@@ -67,12 +53,19 @@ class NewsFragment : Fragment()
                     }
                     override fun onResponse(call: retrofit2.Call<NewsDataClass>, response:retrofit2.Response<NewsDataClass>) {
                         val msg= response.body()!!
-
                         initRecyclerView(msg)
-
                     }
 
                 })
-
     }
+    private fun initRecyclerView(dataClass: NewsDataClass) {
+    activity?.runOnUiThread {
+        newsRecyclerView.layoutManager = LinearLayoutManager(activity)
+        newsRecyclerView.adapter =NewsAdapter(
+                activity,
+                dataClass.result!!.data as ArrayList<NewsDataClass.ResultBean.DataBean>
+        )
+        (newsRecyclerView.adapter as NewsAdapter).notifyDataSetChanged()
+    }
+}
 }

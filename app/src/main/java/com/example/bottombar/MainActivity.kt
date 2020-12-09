@@ -47,7 +47,7 @@ class MainActivity : AppCompatActivity() {
                 if(fragmentList[position].isAdded){
                     fragmentTransaction.show(fragmentList[position])
                 }else{
-                    fragmentTransaction.add(R.id.bottom_navigation_bar, fragmentList[position])
+                    fragmentTransaction.add(R.id.tabs, fragmentList[position])
                 }
                 fragmentTransaction.commitAllowingStateLoss()
             }

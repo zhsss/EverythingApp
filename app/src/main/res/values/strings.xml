@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">BottomBar</string>
+    <string name="String">运动指数：</string>
+    <string name="city">请输入城市</string>
 </resources>
