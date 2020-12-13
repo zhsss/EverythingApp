@@ -1,14 +1,13 @@
 package com.example.bottombar.Fragment
-
+import android.content.Context
+import android.graphics.Color
 import android.os.Bundle
-
-
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.example.bottombar.Adapter.NewsAdapter
 import com.example.bottombar.R
 import com.example.bottombar.bean.NewsDataClass
@@ -18,7 +17,12 @@ import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
 import retrofit2.http.Query
 import kotlinx.android.synthetic.main.news_fragment.view.*
-class NewsFragment : Fragment()
+import org.json.JSONArray
+import java.io.BufferedWriter
+import java.io.OutputStreamWriter
+import java.io.Writer
+
+class NewsFragment : Fragment(),SwipeRefreshLayout.OnRefreshListener
 {
     override fun onCreateView(
             inflater: LayoutInflater,
@@ -26,8 +30,8 @@ class NewsFragment : Fragment()
             savedInstanceState: Bundle?
     ): View? {
         var view:View=inflater.inflate(R.layout.news_fragment, container, false)
-
         getInternetData("")
+
         return view
     }
 
@@ -59,13 +63,17 @@ class NewsFragment : Fragment()
                 })
     }
     private fun initRecyclerView(dataClass: NewsDataClass) {
-    activity?.runOnUiThread {
-        newsRecyclerView.layoutManager = LinearLayoutManager(activity)
-        newsRecyclerView.adapter =NewsAdapter(
-                activity,
-                dataClass.result!!.data as ArrayList<NewsDataClass.ResultBean.DataBean>
-        )
-        (newsRecyclerView.adapter as NewsAdapter).notifyDataSetChanged()
-    }
+        activity?.runOnUiThread {
+            newsRecyclerView.layoutManager = LinearLayoutManager(activity)
+            newsRecyclerView.adapter =NewsAdapter(
+                    activity,
+                    dataClass.result!!.data as ArrayList<NewsDataClass.ResultBean.DataBean>
+            )
+            (newsRecyclerView.adapter as NewsAdapter).notifyDataSetChanged()
+        }
 }
+
+    override fun onRefresh() {
+
+    }
 }

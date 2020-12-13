@@ -27,7 +27,7 @@ class MainActivity : AppCompatActivity() {
                 .addItem(BottomNavigationItem(R.drawable.movie,"影讯"))
                 .addItem(BottomNavigationItem(R.drawable.my,"我的"))
                 .setInActiveColor(R.color.colortext)
-                .setActiveColor(R.color.colorAccent)
+                .setActiveColor(R.color.teal_200)
                 .setFirstSelectedPosition(0)
                 .initialise()
         val myObject=object:BottomNavigationBar.OnTabSelectedListener{

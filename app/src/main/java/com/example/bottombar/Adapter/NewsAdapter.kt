@@ -9,7 +9,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.bottombar.R
 import com.example.bottombar.activity.NewsActivity
-import com.example.bottombar.activity.News_activity
 import com.example.bottombar.bean.NewsDataClass
 import kotlinx.android.synthetic.main.news_item.view.*
 
