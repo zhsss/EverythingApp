@@ -30,7 +30,6 @@ class MovieAdapter(private val context: FragmentActivity?, private val alist:Lis
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-
         with(holder?.itemView!!){
             Glide.with(context).load(alist[position].subject.images.medium).into(mMoviePoster)
             mMovieName.text=alist[position].subject.title
@@ -38,12 +37,9 @@ class MovieAdapter(private val context: FragmentActivity?, private val alist:Lis
             holder.itemView.setOnClickListener {
                 val intent = Intent(context, Movie_activity::class.java)
                 intent.putExtra("movie",Gson().toJson(alist[position].subject))
-               // intent.putExtra("title", alist[position].title)
-               // intent.putExtra("image", alist[position].thumbnail_pic_s)
-               // intent.putExtra("url", alist[position].url)
+
                 context.startActivity(intent)
             }
         }
-
     }
 }

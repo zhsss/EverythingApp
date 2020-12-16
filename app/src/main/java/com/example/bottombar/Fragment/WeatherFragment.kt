@@ -35,7 +35,7 @@ class WeatherFragment : Fragment(), TextWatcher, View.OnClickListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         et_city.addTextChangedListener(this)
-
+        getInternetData("北京")
     }
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
@@ -73,8 +73,13 @@ class WeatherFragment : Fragment(), TextWatcher, View.OnClickListener {
             lastday.text=msg.result.daily[2].week+" · "+msg.result.daily[2].day.weather
             tempthree.text=msg.result.daily[2].night.templow+"° / "+msg.result.daily[2].day.temphigh+"°"
 
-            nowClothes.text=msg.result.index[6].ivalue
-            nowSport.text=msg.result.index[1].ivalue
+            nowClothes.text="穿衣指数"+msg.result.index[6].ivalue
+            nowSport.text="运动指数"+msg.result.index[1].ivalue
+            nowAir.text="空气指数"+msg.result.index[5].ivalue
+            nowCar.text="洗车指数"+msg.result.index[4].ivalue
+            nowCold.text="感冒指数"+msg.result.index[3].ivalue
+            nowCondition.text="空调指数"+msg.result.index[0].ivalue
+            nowUc.text="紫外线指数"+msg.result.index[2].ivalue
         }
     }
     /**

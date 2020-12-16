@@ -1,7 +1,10 @@
 package com.example.bottombar
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
+import android.widget.Button
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
 import com.ashokvarma.bottomnavigation.BottomNavigationBar
@@ -10,6 +13,7 @@ import com.example.bottombar.Fragment.MovieFragment
 import com.example.bottombar.Fragment.MyFragment
 import com.example.bottombar.Fragment.NewsFragment
 import com.example.bottombar.Fragment.WeatherFragment
+import com.example.bottombar.login.loginActivity
 import kotlin.collections.ArrayList
 
 class MainActivity : AppCompatActivity() {
@@ -66,5 +70,4 @@ class MainActivity : AppCompatActivity() {
         fragmentList.add(movieFragment)
         fragmentList.add(myFragment)
     }
-
 }

@@ -163,14 +163,15 @@
                 android:orientation="vertical">
 
                 <TextView
+                    android:id="@+id/mTvMainTime"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="简介：恐怖"
+                    android:text="大陆上映日期："
                     android:textColor="#666"
                     android:textSize="14dp" />
 
                 <TextView
-                    android:id="@+id/mTvSummary"
+                    android:id="@+id/mTvDuring"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
@@ -192,7 +193,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="主演：他们" />
+                    android:text="主演：" />
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/mCastsRecyclerView"

@@ -18,4 +18,10 @@
     <color name="textClickColor">#6e6a6a</color>
     <!-- 新闻详情页上方toolbar的背景 -->
     <color name="showToolBarBackground">#fec4bfbf</color>
+    <color name="color_minefragment_top">#20B2AA</color>
+    <color name="divider">#e8e7e7</color>
+
+    <color name="skin_text_white">#ffffff</color>
+
+    <color name="skin_topbar_bg_color">#344261</color>
 </resources>
