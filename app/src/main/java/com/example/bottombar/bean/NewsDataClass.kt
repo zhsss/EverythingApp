@@ -7,13 +7,13 @@ data class NewsDataClass(val reason: String,
 
     data class ResultBean(val stat: String,
                           val data: List<DataBean>) {
-        data class DataBean(val uniquekey: String,
-                            val title: String,
-                            val date: String,
-                            val category: String,
-                            val author_name: String,
-                            val url: String,
-                            val thumbnail_pic_s: String){
+        data class DataBean(var uniquekey: String,
+                            var title: String,
+                            var date: String,
+                            var category: String,
+                            var author_name: String,
+                            var url: String,
+                            var thumbnail_pic_s: String){
 
         }
     }

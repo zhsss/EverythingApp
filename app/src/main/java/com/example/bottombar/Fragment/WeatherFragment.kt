@@ -3,14 +3,16 @@ import android.annotation.SuppressLint
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import android.widget.EditText
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.bumptech.glide.Glide
+import com.example.bottombar.Adapter.NewsAdapter
+import com.example.bottombar.Adapter.WeatherHourAdapter
 import com.example.bottombar.R
 import com.example.bottombar.bean.WeatherDataClass
 import retrofit2.Retrofit
@@ -18,7 +20,6 @@ import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
 import retrofit2.http.Query
 import kotlinx.android.synthetic.main.weather_fragment.*
-import java.util.*
 
 class WeatherFragment : Fragment(), TextWatcher, View.OnClickListener {
 
@@ -53,6 +54,25 @@ class WeatherFragment : Fragment(), TextWatcher, View.OnClickListener {
             nowTel.text=msg.result.temp+"°"
             nowWeek.text=msg.result.week
             nowWeather.text=msg.result.weather
+
+            var imageName="s"+msg.result.daily[0].day.img
+            var imageId:Int= activity!!.resources.getIdentifier(imageName,"drawable", activity!!.packageName)
+            Glide.with(activity).load(imageId).into(todayImage)
+            today.text="   今天 · "+msg.result.daily[0].day.weather
+            tempone.text=msg.result.daily[0].night.templow+"° / "+msg.result.daily[0].day.temphigh+"°"
+
+            imageName="s"+msg.result.daily[1].day.img
+            imageId= activity!!.resources.getIdentifier(imageName,"drawable", activity!!.packageName)
+            Glide.with(activity).load(imageId).into(tommrodayImage)
+            tommroday.text="   明天 · "+msg.result.daily[1].day.weather
+            temptwo.text=msg.result.daily[1].night.templow+"° / "+msg.result.daily[1].day.temphigh+"°"
+
+            imageName="s"+msg.result.daily[2].day.img
+            imageId= activity!!.resources.getIdentifier(imageName,"drawable", activity!!.packageName)
+            Glide.with(activity).load(imageId).into(lastdayImage)
+            lastday.text=msg.result.daily[2].week+" · "+msg.result.daily[2].day.weather
+            tempthree.text=msg.result.daily[2].night.templow+"° / "+msg.result.daily[2].day.temphigh+"°"
+
             nowClothes.text=msg.result.index[6].ivalue
             nowSport.text=msg.result.index[1].ivalue
         }
@@ -78,9 +98,22 @@ class WeatherFragment : Fragment(), TextWatcher, View.OnClickListener {
                     override fun onResponse(call: retrofit2.Call<WeatherDataClass>, response:retrofit2.Response<WeatherDataClass>) {
                         val msg= response.body()!!
                         changeLayout(msg)
+                        initRecyclerView(msg)
                     } })
     }
 
+    fun initRecyclerView(dataClass: WeatherDataClass) {
+        activity?.runOnUiThread {
+            val horizontal =LinearLayoutManager(activity)
+            horizontal.orientation=LinearLayoutManager.HORIZONTAL
+            weatherRecyclerView.layoutManager = horizontal
+            weatherRecyclerView.adapter = WeatherHourAdapter(
+                    activity,
+                    dataClass.result!!.hourly as ArrayList<WeatherDataClass.ResultBean.HourlyBean>
+            )
+            (weatherRecyclerView.adapter as WeatherHourAdapter).notifyDataSetChanged()
+        }
+    }
 
     override fun afterTextChanged(s: Editable?) {
         button_click.isEnabled = et_city.length()>0

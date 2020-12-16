@@ -10,9 +10,10 @@ import com.bumptech.glide.Glide
 import com.example.bottombar.R
 import com.example.bottombar.activity.NewsActivity
 import com.example.bottombar.bean.NewsDataClass
+import com.example.bottombar.bean.WeatherDataClass
 import kotlinx.android.synthetic.main.news_item.view.*
 
-class NewsAdapter(private val context: FragmentActivity?, private val alist:List<NewsDataClass.ResultBean.DataBean>):
+class NewsAdapter(private val context: FragmentActivity?, private val alist: ArrayList<NewsDataClass.ResultBean.DataBean>):
         RecyclerView.Adapter<NewsAdapter.ViewHolder>(){
 
     class ViewHolder(itemView: View) :RecyclerView.ViewHolder(itemView)
@@ -28,9 +29,9 @@ class NewsAdapter(private val context: FragmentActivity?, private val alist:List
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
         with(holder?.itemView!!){
-            tv_news_detail_title.setText(alist[position].title)
-           tv_news_detail_author_name.setText(alist[position].author_name)
-            tv_news_detail_date.setText(alist[position].date)
+            tv_news_detail_title.text = alist[position].title
+            tv_news_detail_author_name.text = alist[position].author_name
+            tv_news_detail_date.text = alist[position].date
             Glide.with(context).load(alist[position].thumbnail_pic_s).into(iv_news_detail_pic)
             holder.itemView.setOnClickListener {
                 val intent = Intent(context,NewsActivity::class.java)
