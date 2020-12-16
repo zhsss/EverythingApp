@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:title="新闻类别"
+        app:showAsAction="ifRoom">
+        <menu>
+            <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/nav_first"
+                    android:icon="@drawable/uc"
+                    android:title="头条" />
+                <item
+                    android:id="@+id/nav_second"
+                    android:icon="@drawable/condition"
+                    android:title="社会" />
+                <item
+                    android:id="@+id/nav_third"
+                    android:icon="@drawable/condition"
+                    android:title="国内" />
+                <item
+                    android:id="@+id/nav_fourth"
+                    android:icon="@drawable/condition"
+                    android:title="娱乐" />
+                <item
+                    android:id="@+id/nav_fivth"
+                    android:icon="@drawable/condition"
+                    android:title="体育" />
+                <item
+                    android:id="@+id/nav_six"
+                    android:icon="@drawable/condition"
+                    android:title="军事" />
+                <item
+                    android:id="@+id/nav_seven"
+                    android:icon="@drawable/condition"
+                    android:title="科技" />
+                <item
+                    android:id="@+id/nav_eight"
+                    android:icon="@drawable/condition"
+                    android:title="财经" />
+                <item
+                    android:id="@+id/nav_nine"
+                    android:icon="@drawable/condition"
+                    android:title="时尚" />
+            </group>
+        </menu>
+    </item>
+    <item
+        android:title="设置"
+        app:showAsAction="ifRoom">
+        <menu>
+            <item
+                android:id="@+id/zhuti"
+                android:icon="@drawable/condition"
+                android:title="主题">
+            </item>
+            <item
+                android:id="@+id/tuichu"
+                android:icon="@drawable/condition"
+                android:title="退出">
+            </item>
+        </menu>
+    </item>
+</menu>

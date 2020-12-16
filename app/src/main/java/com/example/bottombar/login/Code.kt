@@ -6,9 +6,6 @@ import android.graphics.Color
 import android.graphics.Paint
 import java.util.*
 
-/**
- * Created by littlecurl 2018/6/24
- */
 class Code {
     //settings decided by the layout xml
     //canvas width and height
@@ -108,15 +105,6 @@ class Code {
     }
 
     companion object {
-        /**
-         * 随机数数组
-         * 去除了易混淆的 数字 0 和 字母 o O
-         * 数字 1 和 字母 i I l L
-         * 数字 6 和 字母 b
-         * 数字 9 和 字母 q
-         * 字母 c C 和 G
-         * 字母 t （经常和随机线混在一起看不清）
-         */
         private val CHARS = charArrayOf(
                 '2', '3', '4', '5', '7', '8',
                 'a', 'd', 'e', 'f', 'g', 'h', 'j', 'k', 'm',
