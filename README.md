@@ -33,10 +33,8 @@ Eve app，该app旨在为用户打造一个全面掌握各种信息的多功能�
 
 
 ## 下载体验
-- 扫描二维码安装：<br></br>
-   <a href="https://www.pgyer.com/eyepetizer"><img src="eyepetizer.png"/></a>
 
-- [点击下载 EveTg.apk]()
+- [点击下载 EveTg.apk](https://raw.githubusercontent.com/zhsss/EverythingApp/master/Eve.apk)
 
 ## 主要功能
 - 观看优质新闻。
