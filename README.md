@@ -1,5 +1,5 @@
-# Eye
-基于 [Kotlin](https://kotlinlang.org) 语言写的 Eve App是Android 客户端项目。
+# Eve
+基于 [Kotlin](https://kotlinlang.org) 语言写的 Eve App是Android 客户端项目
 
 ## 简介
 Eve app，该app旨在为用户打造一个全面掌握各种信息的多功能类应用，点开左侧导航栏，您可以进行个性化的操作和系统设置;底部导航栏分为新闻，天气与影讯三个界面界面，点击可切换，每次推送的内容都是有限的，节约用户的时间; 同时这款 App 的界面设计着重简洁清新。希望通过此项目，进行相关技术的学习与整合。
@@ -34,7 +34,7 @@ Eve app，该app旨在为用户打造一个全面掌握各种信息的多功能�
 
 ## 下载体验
 
-- [点击下载 EveTg.apk](https://raw.githubusercontent.com/zhsss/EverythingApp/master/Eve.apk)
+- [点击下载 Eve.apk](https://raw.githubusercontent.com/zhsss/EverythingApp/master/Eve.apk)
 
 ## 主要功能
 - 观看优质新闻。
