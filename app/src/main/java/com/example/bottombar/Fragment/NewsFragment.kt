@@ -1,5 +1,6 @@
 package com.example.bottombar.Fragment
 import android.content.ContentValues
+import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -16,6 +17,8 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
 import retrofit2.http.Query
+import java.lang.Runnable as Runnable
+
 class NewsFragment : Fragment(),SwipeRefreshLayout.OnRefreshListener
 {
     private var newsHelper:NewsDatBaseHelper? = null
@@ -29,11 +32,13 @@ class NewsFragment : Fragment(),SwipeRefreshLayout.OnRefreshListener
         var view:View=inflater.inflate(R.layout.news_fragment, container, false)
         newsHelper = activity?.let { NewsDatBaseHelper(it, "newsDataStore.db", 1) }
         getDBData()
-
-        //createDB()
-        //addData()
-        //deleteData()
+        createDB()
+        for(i in 0..8){
+            addData()
+        }
+        deleteData()
         return view
+
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -75,6 +80,8 @@ class NewsFragment : Fragment(),SwipeRefreshLayout.OnRefreshListener
     }
     private fun initRecyclerView(dataClass: NewsDataClass) {
         activity?.runOnUiThread {
+            srl.setOnRefreshListener(this)
+            srl.setColorSchemeColors(Color.RED,Color.GREEN,Color.BLUE)
             newsRecyclerView.layoutManager = LinearLayoutManager(activity)
             newsRecyclerView.adapter =NewsAdapter(
                     activity,
@@ -83,7 +90,6 @@ class NewsFragment : Fragment(),SwipeRefreshLayout.OnRefreshListener
             (newsRecyclerView.adapter as NewsAdapter).notifyDataSetChanged()
         }
     }
-
     fun createDB()
     {
         newsHelper?.writableDatabase
@@ -139,15 +145,16 @@ class NewsFragment : Fragment(),SwipeRefreshLayout.OnRefreshListener
                         data.date = cursor.getString(cursor.getColumnIndex("date"))
                         listLast.add(data)
                 }while (cursor.moveToNext())
-            // do {
-                 //   val name = cursor.getString(cursor.getColumnIndex("name"))
-                 //   Log.d("MainActivity", "book name is $name")
-               // } while (cursor.moveToNext())
             }
         }
         cursor?.close()
     }
     override fun onRefresh() {
-
+        getInternetData("junshi")
+        srl.postDelayed(Runnable(){
+             run {
+                 srl.isRefreshing=false
+            }
+        },3000)
     }
 }

@@ -2,4 +2,6 @@
     <string name="app_name">BottomBar</string>
     <string name="String">运动指数：</string>
     <string name="city">请输入城市</string>
+    <string name="helpdoc">欢迎使用全知app，该app旨在为你打造一个全面掌握各种信息的多功能类应用，点开左侧导航栏，您可以进行个性化的操作和系统设置;
+        底部导航栏分为新闻，天气与影讯三个界面界面，点击可切换，每次推送的内容都是有限的，节约您的时间，您可以更改主题，祝你使用愉快</string>
 </resources>

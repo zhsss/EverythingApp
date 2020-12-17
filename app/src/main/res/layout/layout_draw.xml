@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="140dp">
     <de.hdodenhof.circleimageview.CircleImageView
-        android:layout_marginLeft="10dp"
+        android:layout_marginStart="10dp"
         android:id="@+id/iv_show"
         android:layout_width="70dp"
         android:layout_height="70dp"
@@ -22,17 +22,17 @@
         android:layout_marginTop="6dp"
         android:textStyle="bold"
         app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginLeft="18dp"
+        android:layout_marginStart="18dp"
         android:textSize="18sp"
         android:id="@+id/tv_show"/>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/tv_show"
-        android:text="简单却也不简单"
+        android:text="知道却也不知道"
         android:layout_marginTop="4dp"
         android:textSize="14sp"
         app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginLeft="18dp"
+        android:layout_marginStart="18dp"
         android:textStyle="bold"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

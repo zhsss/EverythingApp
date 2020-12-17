@@ -2,46 +2,39 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:title="新闻类别"
+        android:title="个人"
         app:showAsAction="ifRoom">
         <menu>
             <group android:checkableBehavior="single">
                 <item
                     android:id="@+id/nav_first"
-                    android:icon="@drawable/uc"
-                    android:title="头条" />
+                    android:icon="@drawable/dontai"
+                    android:title="动态" />
                 <item
                     android:id="@+id/nav_second"
-                    android:icon="@drawable/condition"
-                    android:title="社会" />
+                    android:icon="@drawable/guanzhu"
+                    android:title="关注" />
                 <item
                     android:id="@+id/nav_third"
-                    android:icon="@drawable/condition"
-                    android:title="国内" />
+                    android:icon="@drawable/haoyou"
+                    android:title="好友" />
                 <item
                     android:id="@+id/nav_fourth"
-                    android:icon="@drawable/condition"
-                    android:title="娱乐" />
+                    android:icon="@drawable/shoucang"
+                    android:title="收藏" />
                 <item
                     android:id="@+id/nav_fivth"
-                    android:icon="@drawable/condition"
-                    android:title="体育" />
-                <item
-                    android:id="@+id/nav_six"
-                    android:icon="@drawable/condition"
-                    android:title="军事" />
-                <item
-                    android:id="@+id/nav_seven"
-                    android:icon="@drawable/condition"
-                    android:title="科技" />
-                <item
-                    android:id="@+id/nav_eight"
-                    android:icon="@drawable/condition"
-                    android:title="财经" />
+                    android:icon="@drawable/xiaoxi"
+                    android:title="消息" />
                 <item
                     android:id="@+id/nav_nine"
-                    android:icon="@drawable/condition"
-                    android:title="时尚" />
+                    android:icon="@drawable/huiyuan"
+                    android:title="会员" />
+                <item
+                    android:id="@+id/nav_six"
+                    android:icon="@drawable/liulan"
+                    android:title="浏览历史" />
+
             </group>
         </menu>
     </item>
@@ -50,13 +43,22 @@
         app:showAsAction="ifRoom">
         <menu>
             <item
+                android:id="@+id/nav_seven"
+                android:icon="@drawable/kefu"
+                android:title="客服" />
+            <item
+                android:id="@+id/nav_eight"
+                android:icon="@drawable/banben"
+                android:title="版本" />
+
+            <item
                 android:id="@+id/zhuti"
-                android:icon="@drawable/condition"
+                android:icon="@drawable/chuti"
                 android:title="主题">
             </item>
             <item
                 android:id="@+id/tuichu"
-                android:icon="@drawable/condition"
+                android:icon="@drawable/tuichu"
                 android:title="退出">
             </item>
         </menu>
