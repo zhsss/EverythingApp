@@ -60,3 +60,4 @@ Eve app，该app旨在为用户打造一个全面掌握各种信息的多功能�
 - [circleimageview](https://github.com/hdodenhof/CircleImageView) 图像
 - [constraintlayout](https://github.com/android/views-widgets-samples/tree/master/ConstraintLayoutExamples) 约束
 - [cardview](https://github.com/chiemy/CardView) 卡片
+- [NestedScrollView](https://github.com/ngocchung/NestedScrollView)
